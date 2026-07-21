@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>দিরাই-ঢাকা বাস কাউন্টার ডিরেক্টরি</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; }
+h1 { color: #333; }
+.form-group { margin-bottom: 10px; }
+input, button { padding: 8px; margin-right: 5px; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
+th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+th { background-color: #007bff; color: white; }
+</style>
+</head>
+<body>
+
+<h1>দিরাই-ঢাকা বাস কাউন্টার নম্বর</h1>
+
+<h3>নতুন কাউন্টার নম্বর যোগ করুন</h3>
+<div class="form-group">
+<input type="text" id="busName" placeholder="বাসের নাম">
+<input type="text" id="counterLocation" placeholder="কাউন্টারের স্থান (যেমন: সাইদাবাদ/দিরাই)">
+<input type="text" id="phoneNum" placeholder="মোবাইল নম্বর">
+<button onclick="addCounter()">যোগ করুন</button>
+</div>
+
+<table id="counterTable">
+<thead>
+<tr>
+<th>বাসের নাম</th>
+<th>কাউন্টার স্থান</th>
+<th>মোবাইল নম্বর</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>দিরাই ট্রাভেলস</td>
+<td>সাইদাবাদ, ঢাকা</td>
+<td>০১৭০০০০০০০০</td>
+</tr>
+</tbody>
+</table>
+
+<script>
+function addCounter() {
+var busName = document.getElementById("busName").value;
+var location = document.getElementById("counterLocation").value;
+var phone = document.getElementById("phoneNum").value;
+
+if (busName === "" || location === "" || phone === "") {
+alert("সবগুলো ঘর পূরণ করুন!");
+return;
+}
+
+var table = document.getElementById("counterTable").getElementsByTagName('tbody')[0];
+var newRow = table.insertRow();
+
+var cell1 = newRow.insertCell(0);
+var cell2 = newRow.insertCell(1);
+var cell3 = newRow.insertCell(2);
+
+cell1.innerHTML = busName;
+cell2.innerHTML = location;
+cell3.innerHTML = phone;
+
+// ইনপুট বক্স খালি করা
+document.getElementById("busName").value = "";
+document.getElementById("counterLocation").value = "";
+document.getElementById("phoneNum").value = "";
+}
+</script>
+
+</body>
+</html>
+
